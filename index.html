@@ -4,47 +4,87 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fresh Basket Badarpur</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#1d2b20}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7faf7;color:#1d2b20}
 header{background:#176b3a;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
-.logo{font-size:22px;font-weight:700}.cart{background:white;color:#176b3a;border:0;border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer}
-.hero{padding:45px 6%;background:#e8f6eb}.hero h1{font-size:38px;margin:0 0 10px}.hero p{font-size:18px}.btn{display:inline-block;background:#176b3a;color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;border:0;font-weight:700;cursor:pointer}
-section{padding:28px 5%}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:15px}
-.card{background:#fff;border-radius:14px;padding:15px;box-shadow:0 2px 10px #00000010}.emoji{font-size:48px;text-align:center;background:#f1f8f2;border-radius:10px;padding:12px}.card h3{margin:10px 0 5px}.price{font-weight:700;margin-bottom:10px}.qty{display:flex;gap:8px;align-items:center}.qty button{width:32px;height:32px;border:1px solid #ccc;background:white;border-radius:6px;cursor:pointer}.qty span{min-width:25px;text-align:center}
-.info{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 10px #0000000d}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}.feature{padding:16px;background:#f1f8f2;border-radius:10px}
+.logo{font-size:22px;font-weight:700}
+.cart{background:white;color:#176b3a;border:0;border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer}
+.hero{padding:45px 6%;background:#e8f6eb}
+.hero h1{font-size:38px;margin:0 0 10px}
+.hero p{font-size:18px}
+.btn{display:inline-block;background:#176b3a;color:white;padding:12px 18px;border-radius:8px;text-decoration:none;border:0;font-weight:700;cursor:pointer}
+section{padding:28px 5%}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:15px}
+.card{background:white;border-radius:14px;padding:12px;box-shadow:0 2px 10px #00000010;overflow:hidden}
+.product-photo{width:100%;height:145px;object-fit:cover;border-radius:10px;background:#f1f8f2}
+.card h3{margin:10px 0 5px}
+.price{font-weight:700;margin-bottom:10px;color:#176b3a}
+.card select{width:100%;padding:9px;border:1px solid #ccc;border-radius:7px;margin-bottom:8px;background:white}
+.qty{display:flex;gap:8px;align-items:center}
+.qty button{width:32px;height:32px;border:1px solid #ccc;background:white;border-radius:6px;cursor:pointer}
+.qty span{min-width:25px;text-align:center}
+.info{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 10px #0000000d}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.feature{padding:16px;background:#f1f8f2;border-radius:10px}
 #cartBox{position:fixed;right:15px;bottom:15px;width:min(390px,calc(100% - 30px));max-height:90vh;overflow:auto;background:white;padding:20px;border-radius:16px;box-shadow:0 5px 30px #0004;display:none;z-index:10}
-.cartitem{display:flex;justify-content:space-between;gap:10px;margin:8px 0}input,select{width:100%;padding:11px;margin:6px 0;border:1px solid #ccc;border-radius:7px;background:white;font-size:15px}
-footer{background:#173b27;color:white;text-align:center;padding:25px}.floatwa{position:fixed;left:15px;bottom:15px;background:#25D366;color:white;text-decoration:none;padding:13px 17px;border-radius:28px;font-weight:700;box-shadow:0 3px 15px #0003;z-index:9}
-@media(max-width:500px){.hero h1{font-size:30px}.logo{font-size:17px}.cart{padding:8px 11px}.hero .btn{display:inline-block;margin:5px 0!important}}
-.adminbox{background:#fff;border-radius:14px;padding:20px;box-shadow:0 2px 10px #00000012}.adminrow{display:grid;grid-template-columns:1.4fr 90px auto auto;gap:7px;margin:8px 0}.adminrow input{margin:0}.adminrow button{border:0;border-radius:7px;padding:8px;cursor:pointer}.admin-add{display:grid;grid-template-columns:1.5fr 70px 100px auto;gap:7px}.admin-add input{margin:0}
-@media(max-width:600px){.adminrow{grid-template-columns:1fr 80px}.admin-add{grid-template-columns:1fr 60px 90px}.adminrow button{padding:8px}.adminrow button:last-child{grid-column:2}}
+.cartitem{display:flex;justify-content:space-between;gap:10px;margin:8px 0}
+input,select{width:100%;padding:11px;margin:6px 0;border:1px solid #ccc;border-radius:7px;background:white;font-size:15px}
+footer{background:#173b27;color:white;text-align:center;padding:25px}
+.floatwa{position:fixed;left:15px;bottom:15px;background:#25D366;color:white;text-decoration:none;padding:13px 17px;border-radius:28px;font-weight:700;box-shadow:0 3px 15px #0003;z-index:9}
+.adminbox{background:white;border-radius:14px;padding:20px;box-shadow:0 2px 10px #00000012}
+.adminrow{display:grid;grid-template-columns:1.4fr 90px 90px auto auto;gap:7px;margin:8px 0}
+.adminrow input{margin:0;min-width:0}
+.adminrow button{border:0;border-radius:7px;padding:8px;cursor:pointer}
+.admin-add{display:grid;grid-template-columns:1.5fr 1fr 80px 100px auto;gap:7px}
+.admin-add input{margin:0;min-width:0}
+@media(max-width:600px){
+.hero h1{font-size:30px}
+.logo{font-size:17px}
+.cart{padding:8px 11px}
+.hero .btn{display:inline-block;margin:5px 0!important}
+.adminrow{grid-template-columns:1fr 1fr}
+.admin-add{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">🥬 Fresh Basket Badarpur</div><button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button></header>
+
+<header>
+<div class="logo">🥬 Fresh Basket Badarpur</div>
+<button class="cart" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+</header>
 
 <div class="hero">
 <h1>Fresh Vegetables at Your Door 🥦</h1>
 <p>Fresh vegetables • Fair prices • Local delivery in Badarpur</p>
 <a class="btn" href="#shop">Shop Now</a>
-<a class="btn" style="margin-left:8px;background:#25D366" href="https://wa.me/916000513997?text=Hello%2C%20I%20want%20to%20order%20fresh%20vegetables." target="_blank">💬 WhatsApp</a>
+<a class="btn" style="margin-left:8px;background:#25D366"
+href="https://wa.me/916000511397?text=Hello%2C%20I%20want%20to%20order%20fresh%20vegetables."
+target="_blank">💬 WhatsApp</a>
 </div>
 
 <section>
 <h2>Why Choose Us?</h2>
 <div class="features">
-<div class="feature">🌱 Fresh vegetables</div><div class="feature">💰 Fair & transparent prices</div>
-<div class="feature">🛵 Local delivery</div><div class="feature">📱 Easy WhatsApp ordering</div>
+<div class="feature">🌱 Fresh vegetables</div>
+<div class="feature">💰 Fair & transparent prices</div>
+<div class="feature">🛵 Local delivery</div>
+<div class="feature">📱 Easy WhatsApp ordering</div>
 </div>
 </section>
 
 <section id="shop">
 <h2>🛒 Today's Vegetables</h2>
+<p>Select a quantity in grams or kilograms.</p>
 <div class="products" id="products"></div>
 </section>
 
 <section>
-<div class="info"><h2>🚚 Delivery Areas</h2>
+<div class="info">
+<h2>🚚 Delivery Areas</h2>
 <p><b>Sribhumi:</b> Badarpur, Srigouri, Bhanga, Malua, Hasanpur, Kandigram</p>
 <p><b>Cachar:</b> Katigorah</p>
 <p><b>Delivery charge:</b> Contact us for current delivery charge.</p>
@@ -53,95 +93,295 @@ footer{background:#173b27;color:white;text-align:center;padding:25px}.floatwa{po
 </section>
 
 <div id="cartBox">
-<h2>Your Cart</h2><div id="cartItems"></div><hr><h3>Total: ₹<span id="total">0</span></h3>
+<h2>Your Cart</h2>
+<div id="cartItems"></div>
+<hr>
+<h3>Total: ₹<span id="total">0</span></h3>
+
 <input id="name" placeholder="Your name">
+
 <select id="area">
 <option value="">Select delivery area</option>
 <optgroup label="Sribhumi District">
-<option>Badarpur</option><option>Srigouri</option><option>Bhanga</option><option>Malua</option><option>Hasanpur</option><option>Kandigram</option>
+<option>Badarpur</option>
+<option>Srigouri</option>
+<option>Bhanga</option>
+<option>Malua</option>
+<option>Hasanpur</option>
+<option>Kandigram</option>
 </optgroup>
-<optgroup label="Cachar District"><option>Katigorah</option></optgroup>
+<optgroup label="Cachar District">
+<option>Katigorah</option>
+</optgroup>
 </select>
+
 <input id="address" placeholder="Full delivery address">
+
 <button class="btn" style="width:100%;margin-top:8px" onclick="sendWhatsApp()">Order on WhatsApp</button>
 <button onclick="closeCart()" style="width:100%;margin-top:8px;padding:10px;border:0;background:#eee;border-radius:8px">Close</button>
 </div>
 
-<a class="floatwa" href="https://wa.me/916000513997?text=Hello%2C%20I%20want%20to%20order%20fresh%20vegetables." target="_blank">💬 Order on WhatsApp</a>
-<div style="text-align:center;padding:10px"><button class="btn" onclick="showAdmin()">🔐 Admin / Update Prices</button></div>
+<a class="floatwa"
+href="https://wa.me/916000511397?text=Hello%2C%20I%20want%20to%20order%20fresh%20vegetables."
+target="_blank">💬 Order on WhatsApp</a>
+
+<div style="text-align:center;padding:10px">
+<button class="btn" onclick="showAdmin()">🔐 Admin / Update Prices</button>
+</div>
 
 <section id="admin" style="display:none">
 <div class="adminbox">
 <h2>🔐 Admin — Manage Vegetables</h2>
-<p>Add new vegetables or change today's prices. Changes are saved on this device.</p>
+<p>Set prices per kg and update vegetable photos using an image URL.</p>
+
 <div class="admin-add">
-<input id="newName" placeholder="Vegetable name"><input id="newEmoji" placeholder="🥬"><input id="newPrice" type="number" placeholder="₹/kg"><button class="btn" onclick="addProduct()">Add</button>
-</div><hr><div id="adminList"></div>
+<input id="newName" placeholder="Vegetable name">
+<input id="newPhoto" placeholder="Photo URL">
+<input id="newPrice" type="number" min="0.01" step="0.01" placeholder="₹/kg">
+<button class="btn" onclick="addProduct()">Add</button>
+</div>
+
+<hr>
+<div id="adminList"></div>
 </div>
 </section>
-<footer><b>Fresh Basket Badarpur</b><br>Fresh vegetables delivered locally<br>Badarpur, Assam<br><br>📱 WhatsApp: 6000511397</footer>
+
+<footer>
+<b>Fresh Basket Badarpur</b><br>
+Fresh vegetables delivered locally<br>
+Badarpur, Assam<br><br>
+📱 WhatsApp: 6000511397
+</footer>
 
 <script>
-const WHATSAPP="916000513997";
-const defaultProducts=[
- ["Chayote Squash","🥒",50],
- ["Sweet Pumpkin","🎃",50],
- ["Turai","🥒",60],
- ["Garlic","🧄",180],
- ["Ginger","🫚",120]
+const WHATSAPP = "916000511397";
+
+const defaultProducts = [
+ ["Chayote Squash","https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=500&q=80",50],
+ ["Sweet Pumpkin","https://images.unsplash.com/photo-1570586437263-ab629fccc818?auto=format&fit=crop&w=500&q=80",50],
+ ["Turai","https://images.unsplash.com/photo-1563252722-6434563a985d?auto=format&fit=crop&w=500&q=80",60],
+ ["Garlic","https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=500&q=80",180],
+ ["Ginger","https://images.unsplash.com/photo-1615485500704-8e990f9900f4?auto=format&fit=crop&w=500&q=80",120]
 ];
-let products=JSON.parse(localStorage.getItem("freshBasketProducts")||"null")||defaultProducts;
-let cart={};
-function saveProducts(){localStorage.setItem("freshBasketProducts",JSON.stringify(products));}
+
+let products = JSON.parse(localStorage.getItem("freshBasketProducts") || "null") || defaultProducts;
+let cart = {};
+
+function saveProducts(){
+ localStorage.setItem("freshBasketProducts", JSON.stringify(products));
+}
+
+function photoHTML(url, name){
+ return `<img class="product-photo" src="${url}" alt="${name}"
+ onerror="this.onerror=null;this.src='https://placehold.co/400x300?text=Vegetable+Photo'">`;
+}
+
 function renderProducts(){
- const el=document.getElementById("products");el.innerHTML="";
- products.forEach((p,i)=>{el.innerHTML+=`<div class="card"><div class="emoji">${p[1]}</div><h3>${p[0]}</h3><div class="price">₹${p[2]} / kg</div><div class="qty"><button onclick="change(${i},-1)">−</button><span id="q${i}">0</span><button onclick="change(${i},1)">+</button></div></div>`});
+ const el = document.getElementById("products");
+ el.innerHTML = "";
+
+ products.forEach((p,i)=>{
+  el.innerHTML += `
+  <div class="card">
+   ${photoHTML(p[1],p[0])}
+   <h3>${p[0]}</h3>
+   <div class="price">₹${Number(p[2]).toFixed(2)} / kg</div>
+
+   <select id="unit${i}" aria-label="Choose quantity for ${p[0]}">
+    <option value="0.1">100 grams</option>
+    <option value="0.25">250 grams</option>
+    <option value="0.5">500 grams</option>
+    <option value="0.75">750 grams</option>
+    <option value="1" selected>1 kilogram</option>
+   </select>
+
+   <div class="qty">
+    <button onclick="change(${i},-1)">−</button>
+    <span id="q${i}">0</span>
+    <button onclick="change(${i},1)">+</button>
+   </div>
+   <button class="btn" style="width:100%;margin-top:10px"
+   onclick="addSelected(${i})">Add to Cart</button>
+  </div>`;
+ });
 }
+
 function renderAdmin(){
- const a=document.getElementById("adminList");if(!a)return;a.innerHTML="";
- products.forEach((p,i)=>{a.innerHTML+=`<div class="adminrow"><input id="an${i}" value="${p[0]}" placeholder="Vegetable"><input id="ap${i}" type="number" value="${p[2]}" placeholder="Price"><button onclick="updateProduct(${i})">Save</button><button onclick="deleteProduct(${i})">Delete</button></div>`});
+ const a = document.getElementById("adminList");
+ a.innerHTML = "";
+
+ products.forEach((p,i)=>{
+  a.innerHTML += `
+  <div class="adminrow">
+   <input id="an${i}" value="${p[0]}" placeholder="Vegetable name">
+   <input id="ap${i}" type="number" min="0.01" step="0.01" value="${p[2]}" placeholder="₹/kg">
+   <input id="ai${i}" value="${p[1]}" placeholder="Photo URL">
+   <button onclick="updateProduct(${i})">Save</button>
+   <button onclick="deleteProduct(${i})">Delete</button>
+  </div>`;
+ });
 }
+
 function updateProduct(i){
- const n=document.getElementById("an"+i).value.trim(),price=Number(document.getElementById("ap"+i).value);
- if(!n||!price){alert("Enter vegetable name and price.");return}
- products[i][0]=n;products[i][2]=price;saveProducts();renderProducts();renderAdmin();alert("Updated!");
+ const n = document.getElementById("an"+i).value.trim();
+ const price = Number(document.getElementById("ap"+i).value);
+ const photo = document.getElementById("ai"+i).value.trim();
+
+ if(!n || !Number.isFinite(price) || price <= 0 || !photo){
+  alert("Enter a name, a valid price and a photo URL.");
+  return;
+ }
+
+ products[i] = [n,photo,price];
+ saveProducts();
+ renderProducts();
+ renderAdmin();
+ alert("Product updated!");
 }
-function deleteProduct(i){if(confirm("Delete "+products[i][0]+"?")){products.splice(i,1);saveProducts();renderProducts();renderAdmin();}}
+
+function deleteProduct(i){
+ if(confirm("Delete "+products[i][0]+"?")){
+  products.splice(i,1);
+  cart = {};
+  saveProducts();
+  renderProducts();
+  renderAdmin();
+  updateCount();
+ }
+}
+
 function addProduct(){
- const n=document.getElementById("newName").value.trim(),e=document.getElementById("newEmoji").value.trim()||"🥬",price=Number(document.getElementById("newPrice").value);
- if(!n||!price){alert("Enter vegetable name and price.");return}
- products.push([n,e,price]);saveProducts();renderProducts();renderAdmin();
- document.getElementById("newName").value="";document.getElementById("newEmoji").value="";document.getElementById("newPrice").value="";
+ const n = document.getElementById("newName").value.trim();
+ const photo = document.getElementById("newPhoto").value.trim();
+ const price = Number(document.getElementById("newPrice").value);
+
+ if(!n || !Number.isFinite(price) || price <= 0){
+  alert("Enter a vegetable name and a valid price.");
+  return;
+ }
+
+ products.push([
+  n,
+  photo || "https://placehold.co/400x300?text=Vegetable+Photo",
+  price
+ ]);
+
+ saveProducts();
+ renderProducts();
+ renderAdmin();
+
+ document.getElementById("newName").value = "";
+ document.getElementById("newPhoto").value = "";
+ document.getElementById("newPrice").value = "";
 }
+
 function showAdmin(){
- const pass=prompt("Enter admin password:");
- if(pass!=="1234"){if(pass!==null)alert("Wrong password.");return}
- document.getElementById("admin").style.display="block";renderAdmin();document.getElementById("admin").scrollIntoView({behavior:"smooth"});
+ const pass = prompt("Enter admin password:");
+ if(pass !== "1234"){
+  if(pass !== null) alert("Wrong password.");
+  return;
+ }
+ document.getElementById("admin").style.display = "block";
+ renderAdmin();
+ document.getElementById("admin").scrollIntoView({behavior:"smooth"});
 }
-function change(i,n){cart[i]=(cart[i]||0)+n;if(cart[i]<0)cart[i]=0;document.getElementById("q"+i).textContent=cart[i];updateCount();}
-function updateCount(){document.getElementById("count").textContent=Object.values(cart).reduce((a,b)=>a+b,0);}
-function openCart(){renderCart();document.getElementById("cartBox").style.display="block";}
-function closeCart(){document.getElementById("cartBox").style.display="none";}
+
+function change(i,n){
+ const el = document.getElementById("q"+i);
+ if(!el) return;
+ el.textContent = Math.max(0,Number(el.textContent)+n);
+ updateCount();
+}
+
+function addSelected(i){
+ const quantity = Number(document.getElementById("unit"+i).value);
+ cart[i] = (cart[i] || 0) + quantity;
+ updateCount();
+ renderCart();
+ alert(products[i][0]+" added to cart.");
+}
+
+function updateCount(){
+ let count = Object.values(cart).reduce((a,b)=>a+b,0);
+ document.getElementById("count").textContent =
+  Object.values(cart).filter(v=>v>0).length;
+}
+
+function openCart(){
+ renderCart();
+ document.getElementById("cartBox").style.display = "block";
+}
+
+function closeCart(){
+ document.getElementById("cartBox").style.display = "none";
+}
+
+function formatQuantity(kg){
+ if(kg < 1) return `${Math.round(kg*1000)} g`;
+ return `${Number(kg.toFixed(3))} kg`;
+}
+
 function renderCart(){
- let html="",total=0;Object.keys(cart).forEach(i=>{if(cart[i]>0){let p=products[i],v=p[2]*cart[i];total+=v;html+=`<div class="cartitem"><span>${p[1]} ${p[0]} × ${cart[i]} kg</span><b>₹${v}</b></div>`}});
- document.getElementById("cartItems").innerHTML=html||"<p>Your cart is empty.</p>";document.getElementById("total").textContent=total;
+ let html = "", total = 0;
+
+ Object.keys(cart).forEach(i=>{
+  if(cart[i]>0 && products[i]){
+   const p = products[i];
+   const value = p[2]*cart[i];
+   total += value;
+   html += `<div class="cartitem">
+   <span>${p[0]} × ${formatQuantity(cart[i])}</span>
+   <b>₹${value.toFixed(2)}</b>
+   </div>`;
+  }
+ });
+
+ document.getElementById("cartItems").innerHTML =
+  html || "<p>Your cart is empty. Add products before ordering.</p>";
+
+ document.getElementById("total").textContent = total.toFixed(2);
 }
+
 function sendWhatsApp(){
- let name=document.getElementById("name").value.trim(),area=document.getElementById("area").value,address=document.getElementById("address").value.trim();
- if(!name||!area||!address){alert("Please enter your name, select delivery area, and enter full address.");return;}
- let lines=[],total=0;Object.keys(cart).forEach(i=>{if(cart[i]>0){let p=products[i],v=p[2]*cart[i];total+=v;lines.push(`${p[0]} - ${cart[i]} kg - ₹${v}`)}});
- if(!lines.length){alert("Please add vegetables to your cart.");return;}
- let msg=`Hello, I want to place an order.
+ const name = document.getElementById("name").value.trim();
+ const area = document.getElementById("area").value;
+ const address = document.getElementById("address").value.trim();
+
+ if(!name || !area || !address){
+  alert("Please enter your name, select delivery area, and enter full address.");
+  return;
+ }
+
+ let lines = [], total = 0;
+
+ Object.keys(cart).forEach(i=>{
+  if(cart[i]>0 && products[i]){
+   const p = products[i];
+   const value = p[2]*cart[i];
+   total += value;
+   lines.push(`${p[0]} - ${formatQuantity(cart[i])} - ₹${value.toFixed(2)}`);
+  }
+ });
+
+ if(!lines.length){
+  alert("Please add products to your cart first.");
+  return;
+ }
+
+ const msg = `Hello, I want to place an order.
 
 ${lines.join("\n")}
 
-Total: ₹${total}
+Total (excluding any delivery charge): ₹${total.toFixed(2)}
 Name: ${name}
 Delivery Area: ${area}
 Full Address: ${address}`;
- window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,"_blank");
+
+ const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+ window.open(url,"_blank");
 }
+
 renderProducts();
 </script>
 </body>
-</html>
+ </html>
